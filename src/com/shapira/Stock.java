@@ -6,17 +6,22 @@ import java.util.Date;
 import com.sun.java_cup.internal.runtime.Symbol;
 
 public class Stock {
-
+	
+	private static final int BUY = 0, SELL = 1, REMOVE = 2, HOLD = 3;
 	private String symbole;
 	private float ask;
 	private float bid;
 	private Date date;
+	private int recommendation;
+	private int stockQuantity;
 	
 	public Stock(String symbol, float ask, float bid, Date date) {
 		setSymbole(symbol);
 		setAsk(ask);
 		setBid(bid);
 			this.date = date;
+			this.recommendation = 0;
+			this.stockQuantity = 0;
 	}
 
 	public String getSymbole() {
