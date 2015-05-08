@@ -3,7 +3,7 @@ package com.shapira.service;
 import java.util.Calendar;
 import java.util.Date;
 
-import com.shapira.Stock;
+import com.shapira.model.Stock;
 import com.shapira.model.portfolio;
 
 public class PortfolioManager {
