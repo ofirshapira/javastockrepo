@@ -5,14 +5,21 @@ import java.util.Date;
 
 import com.sun.java_cup.internal.runtime.Symbol;
 
+
 public class Stock {
 
-	private static final int BUY = 0, SELL = 1, REMOVE = 2, HOLD = 3;
+	public enum ALGO_RECOMMENDATION{
+		BUY, 
+		SELL,
+		REMOVE,
+		HOLD,
+	}
+	ALGO_RECOMMENDATION HOLD;
 	private String symbole;
 	private float ask;
 	private float bid;
 	private Date date;
-	private int recommendation;
+	private ALGO_RECOMMENDATION recommendation;
 	private int stockQuantity;
 
 
@@ -21,7 +28,6 @@ public class Stock {
 		setAsk(ask);
 		setBid(bid);
 		this.date = date;
-		this.recommendation = 0;
 		this.stockQuantity = 0;
 	}
 
@@ -33,15 +39,14 @@ public class Stock {
 		//		this.ask = stock.getAsk();
 		//		this.bid = stock.getBid();
 		//		this.date = stock.getDate();
-		this.recommendation = stock.getRecommendation();
 		this.stockQuantity = stock.getStockQuantity();
 	}
 
-	public int getRecommendation() {
+	public ALGO_RECOMMENDATION getRecommendation() {
 		return recommendation;
 	}
 
-	public void setRecommendation(int recommendation) {
+	public void setRecommendation(ALGO_RECOMMENDATION recommendation) {
 		this.recommendation = recommendation;
 	}
 
