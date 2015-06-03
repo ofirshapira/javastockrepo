@@ -221,17 +221,17 @@ public class Portfolio implements PortfolioInterface {
 	// Find the Stock in the portfolio
 	public StockInterface findStock(String symbol) {
 		int i = 0;
-		boolean found = false;
+		
 		if (symbol == null){
 			return null;
 		}
-		for (i = 0; i < this.sizeOfPortfolio && !found; i++){
+		for (i = 0; i < this.sizeOfPortfolio; i++){
 			if (symbol.equals(this.stocks[i].getSymbol())){
-				found = true;
+				return this.stocks[i];
 			}
 		}
-		return this.stocks[i];
-	}
+		return null; 
+		}
 
 	public String getHtmlString(){
 		String result = new String();
