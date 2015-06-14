@@ -8,7 +8,7 @@ import org.algo.model.StockInterface;
 import com.shapira.model.Portfolio.ALGO_RECOMMENDATION;
 
 public class Stock implements StockInterface{
-	
+
 	private float balance;
 	private String symbol;
 	private float ask;
@@ -17,24 +17,28 @@ public class Stock implements StockInterface{
 	private ALGO_RECOMMENDATION recommendation;
 	private int stockQuantity;
 
-public Stock()
-{
-	symbol = null;
-	ask = 0;
-	bid = 0;
-	this.date = null;
-	stockQuantity = 0;
-}
-
-public Stock(StockInterface stockInterface) {
-	this.symbol = new String(stockInterface.getSymbol());
-	this.ask = stockInterface.getAsk();
-	this.bid = stockInterface.getBid();
-	new Date(stockInterface.getDate().getTime());
-	this.recommendation = ((Stock) stockInterface).getRecommendation();
-	this.stockQuantity = ((Stock) stockInterface).getStockQuantity();
-}
-
+	public Stock()
+	{
+		symbol = null;
+		ask = 0;
+		bid = 0;
+		this.date = null;
+		stockQuantity = 0;
+	}
+	/**
+copy c'tor
+	 **/
+	public Stock(StockInterface stockInterface) {
+		this.symbol = new String(stockInterface.getSymbol());
+		this.ask = stockInterface.getAsk();
+		this.bid = stockInterface.getBid();
+		new Date(stockInterface.getDate().getTime());
+		this.recommendation = ((Stock) stockInterface).getRecommendation();
+		this.stockQuantity = ((Stock) stockInterface).getStockQuantity();
+	}
+	/**
+update the balance
+	 **/
 	public void updateStockBalance(float amount){
 		if (getBalance() + amount >= 0){
 			setBalance(getBalance() + amount);
@@ -42,7 +46,7 @@ public Stock(StockInterface stockInterface) {
 		else
 			System.out.println("Negative Balance!");
 	}
-	
+
 	public ALGO_RECOMMENDATION getRecommendation() {
 		return recommendation;
 	}
@@ -58,7 +62,7 @@ public Stock(StockInterface stockInterface) {
 	public void setStockQuantity(int stockQuantity) {
 		this.stockQuantity = stockQuantity;
 	}
-	
+
 	private void setBalance(float balance) {
 		this.balance = balance;
 	}
@@ -74,7 +78,7 @@ public Stock(StockInterface stockInterface) {
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;
 	}
-	
+
 	public float getAsk() {
 		return ask;
 	}
